@@ -17,6 +17,7 @@ public class Candidato {
     private String vice;
     private int numero;
     private String partido;
+    private int votos;
 
     public Candidato() {
     }
@@ -59,6 +60,16 @@ public class Candidato {
     public void setPartido(String partido) {
         this.partido = partido;
     }
+
+    public int getVotos() {
+        return votos;
+    }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+    
+    
 
     @Override
     public String toString() {

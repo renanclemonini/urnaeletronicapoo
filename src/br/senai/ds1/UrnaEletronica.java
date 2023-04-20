@@ -17,12 +17,18 @@ public class UrnaEletronica extends javax.swing.JFrame {
     Candidato c1 = new Candidato("Lula","Geraldo",13,"PT");
     Candidato c2 = new Candidato("Bolsonaro","General Heleno",22,"PL");
     Candidato c3 = new Candidato("Ciro","Ana Paula",12,"PDT");
+    
     List<Candidato> listaCandidatos = new ArrayList<>();
+    List<Candidato> votosComputados = new ArrayList<>();
     
     public void addLista(){
         listaCandidatos.add(c1);
         listaCandidatos.add(c2);
         listaCandidatos.add(c3);
+    }
+    
+    public void votos(Candidato candidato){
+        candidato.setVotos(candidato.getVotos()+1);
     }
     
     public void settarTextos(){
@@ -184,6 +190,11 @@ public class UrnaEletronica extends javax.swing.JFrame {
         btnConfirma.setBackground(new java.awt.Color(0, 255, 102));
         btnConfirma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConfirma.setText("Confirma");
+        btnConfirma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmaActionPerformed(evt);
+            }
+        });
 
         btnValue4.setBackground(new java.awt.Color(0, 0, 0));
         btnValue4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -483,8 +494,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
         // TODO add your handling code here:
-        lblExibicao.setText(" "+listaCandidatos);
+        lblExibicao.setText(" ");
     }//GEN-LAST:event_btnBrancoActionPerformed
+
+    private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnConfirmaActionPerformed
 
     /**
      * @param args the command line arguments
