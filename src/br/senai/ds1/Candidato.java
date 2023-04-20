@@ -59,10 +59,12 @@ public class Candidato {
     public void setPartido(String partido) {
         this.partido = partido;
     }
+
+    @Override
+    public String toString() {
+        return "Candidato{" + "nome=" + nome + ", vice=" + vice + ", numero=" + numero + ", partido=" + partido + '}';
+    }
     
     
-    
-    
-    
-    
+
 }
