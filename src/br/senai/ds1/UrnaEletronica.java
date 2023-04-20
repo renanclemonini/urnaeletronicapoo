@@ -27,8 +27,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         listaCandidatos.add(c3);
     }
     
-    public void votos(Candidato candidato){
+    public void setVotos(Candidato candidato){
         candidato.setVotos(candidato.getVotos()+1);
+        votosComputados.add(candidato);
+    }
+    
+    public List<Candidato> getVotos(){
+        return votosComputados;
     }
     
     public void settarTextos(){
@@ -36,15 +41,41 @@ public class UrnaEletronica extends javax.swing.JFrame {
             lblNome.setText(c3.getNome());
             lblPartido.setText(c3.getPartido());
             lblVice.setText(c3.getVice());
+            lblExibicao.setText("Digite confirma para computar seu voto!");
         }else if(txtNumero.getText().equals("13")){
             lblNome.setText(c1.getNome());
             lblPartido.setText(c1.getPartido());
             lblVice.setText(c1.getVice());
+            lblExibicao.setText("Digite confirma para computar seu voto!");
         }else if(txtNumero.getText().equals("22")){
             lblNome.setText(c2.getNome());
             lblPartido.setText(c2.getPartido());
             lblVice.setText(c2.getVice());
+            lblExibicao.setText("Digite confirma para computar seu voto!");
         }
+    }
+    
+    public void settarVotos(){
+        if(txtNumero.getText().equals("12")){
+            setVotos(c3);
+            lblExibicao.setText("Voto confirmado!");
+            lblExibicao.setText("Voto confirmado para "+c3.getNome()+"!");
+        }else if(txtNumero.getText().equals("13")){
+            setVotos(c1);
+            lblExibicao.setText("Voto confirmado para "+c1.getNome()+"!");
+        }else if(txtNumero.getText().equals("22")){
+            setVotos(c2);
+            lblExibicao.setText("Voto confirmado!");
+            lblExibicao.setText("Voto confirmado para "+c2.getNome()+"!");
+        }
+    }
+    
+    public void limparTelas(){
+        txtNumero.setText("");
+        lblNome.setText("");
+        lblPartido.setText("");
+        lblVice.setText("");
+//        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
     }
     
     /**
@@ -314,7 +345,9 @@ public class UrnaEletronica extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Presidente");
 
-        lblExibicao.setText("...");
+        lblExibicao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblExibicao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
 
         javax.swing.GroupLayout pnScreenLayout = new javax.swing.GroupLayout(pnScreen);
         pnScreen.setLayout(pnScreenLayout);
@@ -372,9 +405,9 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 .addGroup(pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblVice, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblExibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(41, 41, 41)
+                .addComponent(lblExibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -432,10 +465,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnCorrigeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorrigeMouseClicked
         // TODO add your handling code here:
-        txtNumero.setText("");
-        lblNome.setText("");
-        lblPartido.setText("");
-        lblVice.setText("");
+        limparTelas();
     }//GEN-LAST:event_btnCorrigeMouseClicked
 
     private void btnValue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue2ActionPerformed
@@ -499,7 +529,9 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         // TODO add your handling code here:
-        
+        settarVotos();
+        limparTelas();
+        System.out.println(votosComputados);
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     /**
