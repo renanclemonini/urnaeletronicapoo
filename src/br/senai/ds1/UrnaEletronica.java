@@ -521,6 +521,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private void btnCorrigeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorrigeMouseClicked
         // TODO add your handling code here:
         limparTelas();
+        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
     }//GEN-LAST:event_btnCorrigeMouseClicked
 
     private void btnValue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue2ActionPerformed
