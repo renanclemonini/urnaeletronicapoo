@@ -29,7 +29,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
     
     public void setVotos(Candidato candidato){
         candidato.setVotos(candidato.getVotos()+1);
-        votosComputados.add(candidato);
     }
     
     public List<Candidato> getVotos(){
@@ -531,7 +530,8 @@ public class UrnaEletronica extends javax.swing.JFrame {
         // TODO add your handling code here:
         settarVotos();
         limparTelas();
-        System.out.println(votosComputados);
+        addLista();
+        System.out.println(listaCandidatos);
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
     /**

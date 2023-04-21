@@ -1,11 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.senai.ds1;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -69,13 +62,8 @@ public class Candidato {
         this.votos = votos;
     }
     
-    
-
     @Override
     public String toString() {
-        return "Candidato{" + "nome=" + nome + ", vice=" + vice + ", numero=" + numero + ", partido=" + partido + ", votos: " + votos + '}';
+        return "Candidato: " + nome + " - Votos: " + votos;
     }
-    
-    
-
 }
