@@ -20,6 +20,7 @@ public class Candidato{
         this.vice = vice;
         this.numero = numero;
         this.partido = partido;
+        this.votos = 0;
     }
     
     public Candidato(String nome, int votos){
