@@ -2,9 +2,9 @@ package br.senai.ds1;
 
 /**
  *
- * @author aluno
+ * @author Renan
  */
-public class Candidato {
+public class Candidato{
     
     private String nome;
     private String vice;
@@ -20,6 +20,11 @@ public class Candidato {
         this.vice = vice;
         this.numero = numero;
         this.partido = partido;
+    }
+    
+    public Candidato(String nome, int votos){
+        this.nome = nome;
+        this.votos = votos;
     }
 
     public String getNome() {
@@ -62,8 +67,10 @@ public class Candidato {
         this.votos = votos;
     }
     
+
     @Override
     public String toString() {
-        return "Candidato: " + nome + " - Votos: " + votos;
+        return "Candidato{" + " nome: " + nome + " - votos: " + votos + '}';
     }
 }
+

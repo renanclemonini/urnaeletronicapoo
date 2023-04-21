@@ -1,7 +1,9 @@
 package br.senai.ds1;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,22 +19,19 @@ public class UrnaEletronica extends javax.swing.JFrame {
     Candidato c1 = new Candidato("Lula","Geraldo",13,"PT");
     Candidato c2 = new Candidato("Bolsonaro","General Heleno",22,"PL");
     Candidato c3 = new Candidato("Ciro","Ana Paula",12,"PDT");
+    Candidato votoBranco = new Candidato("Voto em Branco", 0);
     
     List<Candidato> listaCandidatos = new ArrayList<>();
-    List<Candidato> votosComputados = new ArrayList<>();
     
     public void addLista(){
         listaCandidatos.add(c1);
         listaCandidatos.add(c2);
         listaCandidatos.add(c3);
+        listaCandidatos.add(votoBranco);
     }
     
     public void setVotos(Candidato candidato){
         candidato.setVotos(candidato.getVotos()+1);
-    }
-    
-    public List<Candidato> getVotos(){
-        return votosComputados;
     }
     
     public void settarTextos(){
@@ -57,15 +56,19 @@ public class UrnaEletronica extends javax.swing.JFrame {
     public void settarVotos(){
         if(txtNumero.getText().equals("12")){
             setVotos(c3);
-            lblExibicao.setText("Voto confirmado!");
-            lblExibicao.setText("Voto confirmado para "+c3.getNome()+"!");
+            lblExibicao.setText("Obrigado por exercer seu direito!");
+            JOptionPane.showMessageDialog(null, "Voto em " + c3.getNome() + " computado com sucesso!");
+            lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
         }else if(txtNumero.getText().equals("13")){
             setVotos(c1);
-            lblExibicao.setText("Voto confirmado para "+c1.getNome()+"!");
+            lblExibicao.setText("Obrigado por exercer seu direito!");
+            JOptionPane.showMessageDialog(null, "Voto em " + c1.getNome() + " computado com sucesso!");
+            lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
         }else if(txtNumero.getText().equals("22")){
             setVotos(c2);
-            lblExibicao.setText("Voto confirmado!");
-            lblExibicao.setText("Voto confirmado para "+c2.getNome()+"!");
+            lblExibicao.setText("Obrigado por exercer seu direito!");
+            JOptionPane.showMessageDialog(null, "Voto em " + c2.getNome() + " computado com sucesso!");
+            lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
         }
     }
     
@@ -74,7 +77,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblNome.setText("");
         lblPartido.setText("");
         lblVice.setText("");
-//        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
     }
     
     /**
@@ -86,8 +88,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        popupMenu1 = new java.awt.PopupMenu();
-        popupMenu2 = new java.awt.PopupMenu();
         pnGeneral = new javax.swing.JPanel();
         pnButtons = new javax.swing.JPanel();
         btnValue7 = new javax.swing.JButton();
@@ -115,14 +115,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lblExibicao = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
-        popupMenu1.setLabel("popupMenu1");
-
-        popupMenu2.setLabel("popupMenu2");
+        jPanel1 = new javax.swing.JPanel();
+        btnResultados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         pnGeneral.setBackground(new java.awt.Color(255, 255, 255));
         pnGeneral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -381,7 +380,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
                                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnScreenLayout.setVerticalGroup(
             pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,6 +412,30 @@ public class UrnaEletronica extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Simulador de Urna Eletrônica");
 
+        btnResultados.setText("i");
+        btnResultados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnResultados, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnResultados, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout pnGeneralLayout = new javax.swing.GroupLayout(pnGeneral);
         pnGeneral.setLayout(pnGeneralLayout);
         pnGeneralLayout.setHorizontalGroup(
@@ -420,22 +443,27 @@ public class UrnaEletronica extends javax.swing.JFrame {
             .addGroup(pnGeneralLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnGeneralLayout.createSequentialGroup()
-                        .addComponent(pnScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnGeneralLayout.createSequentialGroup()
+                        .addComponent(pnScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(pnButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31))
         );
         pnGeneralLayout.setVerticalGroup(
             pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnGeneralLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
         );
 
@@ -443,13 +471,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -458,6 +486,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnValue1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValue1MouseClicked
         // TODO add your handling code here:
+        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
         txtNumero.setText(txtNumero.getText() + "1");
         settarTextos();
     }//GEN-LAST:event_btnValue1MouseClicked
@@ -523,7 +552,11 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
         // TODO add your handling code here:
-        lblExibicao.setText(" ");
+        votoBranco.setVotos(votoBranco.getVotos()+1);
+        addLista();
+        lblExibicao.setText("Obrigado por exercer seu direito!");
+        JOptionPane.showMessageDialog(null, "Voto em branco computado com sucesso!");
+        lblExibicao.setText("Digite o numero e após confirmação dos dados pressione confirma para computar o voto.");
     }//GEN-LAST:event_btnBrancoActionPerformed
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
@@ -531,8 +564,21 @@ public class UrnaEletronica extends javax.swing.JFrame {
         settarVotos();
         limparTelas();
         addLista();
-        System.out.println(listaCandidatos);
     }//GEN-LAST:event_btnConfirmaActionPerformed
+
+    private void btnResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadosActionPerformed
+        // TODO add your handling code here:
+        String str = "";
+        if(listaCandidatos.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enesima zerada");
+        }else{
+            str += "\n Votos em Branco: "+votoBranco.getVotos();
+            str += "\nCandidato "+c1.getNome()+" possui "+c1.getVotos()+" votos validos.";
+            str += "\nCandidato "+c2.getNome()+" possui "+c2.getVotos()+" votos validos.";
+            str += "\nCandidato "+c3.getNome()+" possui "+c3.getVotos()+" votos validos.";
+            JOptionPane.showMessageDialog(null, str);
+        }
+    }//GEN-LAST:event_btnResultadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -573,6 +619,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JButton btnBranco;
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnCorrige;
+    private javax.swing.JButton btnResultados;
     private javax.swing.JButton btnValue0;
     private javax.swing.JButton btnValue1;
     private javax.swing.JButton btnValue2;
@@ -589,6 +636,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblExibicao;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPartido;
@@ -596,8 +644,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JPanel pnButtons;
     private javax.swing.JPanel pnGeneral;
     private javax.swing.JPanel pnScreen;
-    private java.awt.PopupMenu popupMenu1;
-    private java.awt.PopupMenu popupMenu2;
     private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }
