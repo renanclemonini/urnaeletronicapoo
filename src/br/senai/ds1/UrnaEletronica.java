@@ -662,13 +662,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         if(listaCandidatos.isEmpty()){
             JOptionPane.showMessageDialog(null, "Enesima zerada");
         }else{
-//            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
-//            str += "\n Votos em Branco: "+votoBranco.getVotos();
-//            str += "\n Votos Nulo: "+votoNulo.getVotos();
-            JOptionPane.showMessageDialog(null, listaCandidatos);
+            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
+            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
+            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
+            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
+            str += "\n Votos em Branco: "+votoBranco.getVotos();
+            str += "\n Votos Nulo: "+votoNulo.getVotos();
+            JOptionPane.showMessageDialog(null, str);
         }
     }//GEN-LAST:event_itemResultadosActionPerformed
 
