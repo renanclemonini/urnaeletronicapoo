@@ -27,6 +27,10 @@ public class Candidato{
         this.nome = nome;
         this.votos = votos;
     }
+    
+    public void setVotos(Candidato candidato){
+        candidato.setVotos(candidato.getVotos()+1);
+    }
 
     public String getNome() {
         return nome;

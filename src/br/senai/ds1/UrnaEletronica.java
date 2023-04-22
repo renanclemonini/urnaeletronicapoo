@@ -23,7 +23,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     Candidato votoBranco = new Candidato("Voto em Branco",0);
     Candidato votoNulo = new Candidato("Voto Nulo", 0);
     
-    List<Candidato> listaCandidatos = new ArrayList<>();
+    static List<Candidato> listaCandidatos = new ArrayList<>();
     
     public void addLista(){
         listaCandidatos.add(c12);
@@ -42,10 +42,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
     ImageIcon braganeto = new ImageIcon(getClass().getResource("/image/braganeto.jpg"));
     ImageIcon kelmon = new ImageIcon(getClass().getResource("/image/kelmon.jpg"));
     ImageIcon prgamonal = new ImageIcon(getClass().getResource("/image/prgamonal.jpg"));
-    /*
-    getClass().getResource("/image/page.png"
-    
-    */
     
     public void setExibicao(){
         lblNomeNome.setText("Nome:");
@@ -102,34 +98,36 @@ public class UrnaEletronica extends javax.swing.JFrame {
         }
     }
     
-    public void setVotos(Candidato candidato){
-        candidato.setVotos(candidato.getVotos()+1);
-    }
-    
     public void setVotoConfirm(){
         switch(txtNumero.getText()){
             case "00" -> {
-                setVotos(votoNulo);
+//                setVotos(votoNulo);
+                votoNulo.setVotos(votoNulo);
                 JOptionPane.showMessageDialog(null, "Voto nulo computado com sucesso!");
             }
             case "12" -> {
-                setVotos(c12);
+//                setVotos(c12);
+                votoNulo.setVotos(c12);
                 JOptionPane.showMessageDialog(null, "Voto em " + c12.getNome() + " computado com sucesso!");
             }
             case "13" -> {
-                setVotos(c13);
+                votoNulo.setVotos(c13);
+//                setVotos(c13);
                 JOptionPane.showMessageDialog(null, "Voto em " + c13.getNome() + " computado com sucesso!");
             }
             case "14" -> {
-                setVotos(c14);
+                votoNulo.setVotos(c14);
+//                setVotos(c14);
                 JOptionPane.showMessageDialog(null, "Voto em " + c14.getNome() + " computado com sucesso!");
             }
             case "22" -> {
-                setVotos(c22);
+                votoNulo.setVotos(c22);
+//                setVotos(c22);
                 JOptionPane.showMessageDialog(null, "Voto em " + c22.getNome() + " computado com sucesso!");
             }
             case "Branco" ->{
-                lblNome.setText("Voto em Branco computado com sucesso!");
+                votoBranco.setVotos(votoBranco);
+                JOptionPane.showMessageDialog(null, "Voto em Branco computado com sucesso!");
             }
         }
     }
@@ -292,7 +290,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
             }
         });
 
-        btnConfirma.setBackground(new java.awt.Color(0, 255, 102));
+        btnConfirma.setBackground(new java.awt.Color(102, 255, 0));
         btnConfirma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConfirma.setText("Confirma");
         btnConfirma.addActionListener(new java.awt.event.ActionListener() {
@@ -664,13 +662,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         if(listaCandidatos.isEmpty()){
             JOptionPane.showMessageDialog(null, "Enesima zerada");
         }else{
-            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
-            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
-            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
-            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
-            str += "\n Votos em Branco: "+votoBranco.getVotos();
-            str += "\n Votos Nulo: "+votoNulo.getVotos();
-            JOptionPane.showMessageDialog(null, str);
+//            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
+//            str += "\n Votos em Branco: "+votoBranco.getVotos();
+//            str += "\n Votos Nulo: "+votoNulo.getVotos();
+            JOptionPane.showMessageDialog(null, listaCandidatos);
         }
     }//GEN-LAST:event_itemResultadosActionPerformed
 
