@@ -16,28 +16,32 @@ public class UrnaEletronica extends javax.swing.JFrame {
         initComponents();
     }
     
-    Candidato c13 = new Candidato("Lula","Geraldo",13,"PT");
-    Candidato c22 = new Candidato("Bolsonaro","General Heleno",22,"PL");
     Candidato c12 = new Candidato("Ciro","Ana Paula",12,"PDT");
+    Candidato c13 = new Candidato("Lula","Geraldo",13,"PT");
+    Candidato c14 = new Candidato("Padre Kelmon","Pastor Gamonal",14,"PTB");
+    Candidato c22 = new Candidato("Bolsonaro","General Heleno",22,"PL");
     Candidato votoBranco = new Candidato("Voto em Branco",0);
     Candidato votoNulo = new Candidato("Voto Nulo", 0);
     
     List<Candidato> listaCandidatos = new ArrayList<>();
     
     public void addLista(){
-        listaCandidatos.add(c13);
-        listaCandidatos.add(c22);
         listaCandidatos.add(c12);
+        listaCandidatos.add(c13);
+        listaCandidatos.add(c14);
+        listaCandidatos.add(c22);
         listaCandidatos.add(votoBranco);
         listaCandidatos.add(votoNulo);
     }
     
-//    ImageIcon lula = new ImageIcon(getClass().getResource("/image/lula.jpg");
-//    ImageIcon geraldo = new ImageIcon(getClass().getResource("/image/geraldo.jpg");
+    ImageIcon lula = new ImageIcon(getClass().getResource("/image/lula.jpg"));
+    ImageIcon geraldo = new ImageIcon(getClass().getResource("/image/geraldo.jpg"));
     ImageIcon ciro = new ImageIcon(getClass().getResource("/image/ciro.jpg"));
     ImageIcon anapaula = new ImageIcon(getClass().getResource("/image/anapaula.jpg"));
     ImageIcon bolsonaro = new ImageIcon(getClass().getResource("/image/bolsonaro.jpg"));
     ImageIcon braganeto = new ImageIcon(getClass().getResource("/image/braganeto.jpg"));
+    ImageIcon kelmon = new ImageIcon(getClass().getResource("/image/kelmon.jpg"));
+    ImageIcon prgamonal = new ImageIcon(getClass().getResource("/image/prgamonal.jpg"));
     /*
     getClass().getResource("/image/page.png"
     
@@ -73,8 +77,16 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 lblNome.setText(c13.getNome());
                 lblPartido.setText(c13.getPartido());
                 lblVice.setText(c13.getVice());
-    //            lblFotoPresidente.setIcon(ciro);
-    //            lblFotoVice.setIcon(anapaula);
+                lblFotoPresidente.setIcon(lula);
+                lblFotoVice.setIcon(geraldo);
+            }
+            case "14" -> {
+                setExibicao();
+                lblNome.setText(c14.getNome());
+                lblPartido.setText(c14.getPartido());
+                lblVice.setText(c14.getVice());
+                lblFotoPresidente.setIcon(kelmon);
+                lblFotoVice.setIcon(prgamonal);
             }
             case "22" -> {
                 setExibicao();
@@ -94,22 +106,31 @@ public class UrnaEletronica extends javax.swing.JFrame {
         candidato.setVotos(candidato.getVotos()+1);
     }
     
-    public void settarVotos(){
-        if(txtNumero.getText().equals("12")){
-            setVotos(c12);
-            JOptionPane.showMessageDialog(null, "Voto em " + c12.getNome() + " computado com sucesso!");
-        }else if(txtNumero.getText().equals("13")){
-            setVotos(c13);
-            JOptionPane.showMessageDialog(null, "Voto em " + c13.getNome() + " computado com sucesso!");
-        }else if(txtNumero.getText().equals("22")){
-            setVotos(c22);
-            JOptionPane.showMessageDialog(null, "Voto em " + c22.getNome() + " computado com sucesso!");
-        }else if(txtNumero.getText().equals("Branco")){
-            setVotos(votoBranco);
-            JOptionPane.showMessageDialog(null, "Voto em branco computado com sucesso!");
-        }else if(txtNumero.getText().equals("00")){
-            setVotos(votoNulo);
-            JOptionPane.showMessageDialog(null, "Voto nulo computado com sucesso!");
+    public void setVotoConfirm(){
+        switch(txtNumero.getText()){
+            case "00" -> {
+                setVotos(votoNulo);
+                JOptionPane.showMessageDialog(null, "Voto nulo computado com sucesso!");
+            }
+            case "12" -> {
+                setVotos(c12);
+                JOptionPane.showMessageDialog(null, "Voto em " + c12.getNome() + " computado com sucesso!");
+            }
+            case "13" -> {
+                setVotos(c13);
+                JOptionPane.showMessageDialog(null, "Voto em " + c13.getNome() + " computado com sucesso!");
+            }
+            case "14" -> {
+                setVotos(c14);
+                JOptionPane.showMessageDialog(null, "Voto em " + c14.getNome() + " computado com sucesso!");
+            }
+            case "22" -> {
+                setVotos(c22);
+                JOptionPane.showMessageDialog(null, "Voto em " + c22.getNome() + " computado com sucesso!");
+            }
+            case "Branco" ->{
+                lblNome.setText("Voto em Branco computado com sucesso!");
+            }
         }
     }
     
@@ -173,7 +194,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         itemResultados = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Urna Eletrônica");
+        setTitle("Projeto Urna Eletrônica - Renan S. Clemonini");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
@@ -632,7 +653,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         // TODO add your handling code here:
-        settarVotos();
+        setVotoConfirm();
         setExibicaoInicial();
         addLista();
     }//GEN-LAST:event_btnConfirmaActionPerformed
@@ -643,9 +664,10 @@ public class UrnaEletronica extends javax.swing.JFrame {
         if(listaCandidatos.isEmpty()){
             JOptionPane.showMessageDialog(null, "Enesima zerada");
         }else{
-            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
-            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
             str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
+            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
+            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
+            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
             str += "\n Votos em Branco: "+votoBranco.getVotos();
             str += "\n Votos Nulo: "+votoNulo.getVotos();
             JOptionPane.showMessageDialog(null, str);
