@@ -4,14 +4,14 @@
  */
 package br.senai.ds1;
 
-import javax.swing.JTable;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author aluno
  */
-public class Resultados extends javax.swing.JFrame {
+public class Resultados extends javax.swing.JFrame{
 
     /**
      * Creates new form Resultados
@@ -20,9 +20,39 @@ public class Resultados extends javax.swing.JFrame {
         initComponents();
     }
     
-    private void setTableInicial(){
+    private String nome;
+    private String votos;
+
+    public Resultados(String nome, String votos) {
+        this.nome = nome;
+        this.votos = votos;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getVotos() {
+        return votos;
+    }
+
+    public void setVotos(String votos) {
+        this.votos = votos;
+    }
+    
+    public void setTableInicial(){
         DefaultTableModel tableResultados = (DefaultTableModel) tbResultados.getModel();
         Object[] dados = {"Renan","10"};
+        tableResultados.addRow(dados);
+    }
+    
+    public void setTable(String nome, String votos){
+        DefaultTableModel tableResultados = (DefaultTableModel) tbResultados.getModel();
+        Object[] dados = {nome,votos};
         tableResultados.addRow(dados);
     }
     

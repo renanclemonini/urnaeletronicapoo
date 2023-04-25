@@ -140,7 +140,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblExibicaoVerde.setText(null);
         lblExibicaoLaranja.setText(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -655,25 +654,25 @@ public class UrnaEletronica extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Resultado resultados = new Resultados();
 //        DefaultTableModel tbResultados = (DefaultTableModel) resultados
-        if (listaCandidatos.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Enesima zerada");
-        } else {
-            Resultados resultados = new Resultados();
-            resultados.setVisible(true);
-        }
-//        String str = "";
-//        if(listaCandidatos.isEmpty()){
+//        if (listaCandidatos.isEmpty()) {
 //            JOptionPane.showMessageDialog(null, "Enesima zerada");
-//        }else{
-////            str += listaCandidatos.toString();
-//            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
-//            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
-//            str += "\n Votos em Branco: "+votoBranco.getVotos();
-//            str += "\n Votos Nulo: "+votoNulo.getVotos();
-//            JOptionPane.showMessageDialog(null, str);
+//        } else {
+//            Resultados resultados = new Resultados();
+//            resultados.setVisible(true);
 //        }
+        String str = "";
+        if(listaCandidatos.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enesima zerada");
+        }else{
+//            str += listaCandidatos.toString();
+            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
+            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
+            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
+            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
+            str += "\n Votos em Branco: "+votoBranco.getVotos();
+            str += "\n Votos Nulo: "+votoNulo.getVotos();
+            JOptionPane.showMessageDialog(null, str);
+        }
     }//GEN-LAST:event_itemResultadosActionPerformed
 
     /**

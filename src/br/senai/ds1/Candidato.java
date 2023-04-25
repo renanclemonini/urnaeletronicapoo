@@ -1,5 +1,7 @@
 package br.senai.ds1;
 
+import java.util.List;
+
 public class Candidato{
     
     private String nome;
@@ -7,6 +9,7 @@ public class Candidato{
     private int numero;
     private String partido;
     private int votos;
+    
 
     public Candidato() {
     }
