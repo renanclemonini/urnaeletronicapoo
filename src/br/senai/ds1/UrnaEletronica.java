@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,21 +12,20 @@ import javax.swing.JOptionPane;
  */
 public class UrnaEletronica extends javax.swing.JFrame {
 
-    
     public UrnaEletronica() {
         initComponents();
     }
-    
-    Candidato c12 = new Candidato("Ciro","Ana Paula",12,"PDT");
-    Candidato c13 = new Candidato("Lula","Geraldo",13,"PT");
-    Candidato c14 = new Candidato("Padre Kelmon","Pastor Gamonal",14,"PTB");
-    Candidato c22 = new Candidato("Bolsonaro","General Heleno",22,"PL");
-    Candidato votoBranco = new Candidato("Voto em Branco",0);
+
+    Candidato c12 = new Candidato("Ciro", "Ana Paula", 12, "PDT");
+    Candidato c13 = new Candidato("Lula", "Geraldo", 13, "PT");
+    Candidato c14 = new Candidato("Padre Kelmon", "Pastor Gamonal", 14, "PTB");
+    Candidato c22 = new Candidato("Bolsonaro", "General Heleno", 22, "PL");
+    Candidato votoBranco = new Candidato("Voto em Branco", 0);
     Candidato votoNulo = new Candidato("Voto Nulo", 0);
-    
+
     static List<Candidato> listaCandidatos = new ArrayList<>();
-    
-    public void addLista(){
+
+    public void addLista() {
         listaCandidatos.add(c12);
         listaCandidatos.add(c13);
         listaCandidatos.add(c14);
@@ -33,7 +33,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         listaCandidatos.add(votoBranco);
         listaCandidatos.add(votoNulo);
     }
-    
+
     ImageIcon lula = new ImageIcon(getClass().getResource("/image/lula.jpg"));
     ImageIcon geraldo = new ImageIcon(getClass().getResource("/image/geraldo.jpg"));
     ImageIcon ciro = new ImageIcon(getClass().getResource("/image/ciro.jpg"));
@@ -42,8 +42,8 @@ public class UrnaEletronica extends javax.swing.JFrame {
     ImageIcon braganeto = new ImageIcon(getClass().getResource("/image/braganeto.jpg"));
     ImageIcon kelmon = new ImageIcon(getClass().getResource("/image/kelmon.jpg"));
     ImageIcon prgamonal = new ImageIcon(getClass().getResource("/image/prgamonal.jpg"));
-    
-    public void setExibicao(){
+
+    public void setExibicao() {
         lblNomeNome.setText("Nome:");
         lblNomePartido.setText("Partido:");
         lblNomeVice.setText("Vice-Presidente:");
@@ -51,10 +51,9 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblExibicaoVerde.setText("VERDE para CONFIRMAR este voto");
         lblExibicaoLaranja.setText("LARANJA para REINICIAR este voto");
     }
-    
-    
-    public void setNumeroCandidato(){
-        switch(txtNumero.getText()){
+
+    public void setNumeroCandidato() {
+        switch (txtNumero.getText()) {
             case "00" -> {
                 lblNome.setText("Voto nulo");
                 lblPartido.setText(null);
@@ -92,47 +91,42 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 lblFotoPresidente.setIcon(bolsonaro);
                 lblFotoVice.setIcon(braganeto);
             }
-            case "Branco" ->{
+            case "Branco" -> {
                 lblNome.setText("Voto em Branco");
             }
         }
     }
-    
-    public void setVotoConfirm(){
-        switch(txtNumero.getText()){
+
+    public void setVotoConfirm() {
+        switch (txtNumero.getText()) {
             case "00" -> {
-//                setVotos(votoNulo);
                 votoNulo.setVotos(votoNulo);
                 JOptionPane.showMessageDialog(null, "Voto nulo computado com sucesso!");
             }
             case "12" -> {
-//                setVotos(c12);
                 votoNulo.setVotos(c12);
                 JOptionPane.showMessageDialog(null, "Voto em " + c12.getNome() + " computado com sucesso!");
             }
             case "13" -> {
                 votoNulo.setVotos(c13);
-//                setVotos(c13);
                 JOptionPane.showMessageDialog(null, "Voto em " + c13.getNome() + " computado com sucesso!");
             }
             case "14" -> {
                 votoNulo.setVotos(c14);
-//                setVotos(c14);
                 JOptionPane.showMessageDialog(null, "Voto em " + c14.getNome() + " computado com sucesso!");
             }
             case "22" -> {
                 votoNulo.setVotos(c22);
-//                setVotos(c22);
                 JOptionPane.showMessageDialog(null, "Voto em " + c22.getNome() + " computado com sucesso!");
             }
-            case "Branco" ->{
+            case "Branco" -> {
                 votoBranco.setVotos(votoBranco);
                 JOptionPane.showMessageDialog(null, "Voto em Branco computado com sucesso!");
             }
         }
     }
-    
-    public void setExibicaoInicial(){
+
+    public void setExibicaoInicial() {
         txtNumero.setText(null);
         lblNome.setText(null);
         lblNomeNome.setText(null);
@@ -146,6 +140,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblExibicaoVerde.setText(null);
         lblExibicaoLaranja.setText(null);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -523,7 +518,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         pnGeneralLayout.setHorizontalGroup(
             pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnGeneralLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -536,7 +531,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         pnGeneralLayout.setVerticalGroup(
             pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnGeneralLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(pnGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -645,7 +640,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
         // TODO add your handling code here:
-        txtNumero.setText(txtNumero.getText()+"Branco");
+        txtNumero.setText(txtNumero.getText() + "Branco");
         setNumeroCandidato();
     }//GEN-LAST:event_btnBrancoActionPerformed
 
@@ -658,18 +653,29 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void itemResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemResultadosActionPerformed
         // TODO add your handling code here:
-        String str = "";
-        if(listaCandidatos.isEmpty()){
+//        Resultado resultados = new Resultados();
+//        DefaultTableModel tbResultados = (DefaultTableModel) resultados
+        String c12Votos = String.format("%d", c12.getVotos());
+        if (listaCandidatos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enesima zerada");
-        }else{
-            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
-            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
-            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
-            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
-            str += "\n Votos em Branco: "+votoBranco.getVotos();
-            str += "\n Votos Nulo: "+votoNulo.getVotos();
-            JOptionPane.showMessageDialog(null, str);
+        } else {
+            Resultados resultados = new Resultados();
+            resultados.setVisible(true);
+            
         }
+//        String str = "";
+//        if(listaCandidatos.isEmpty()){
+//            JOptionPane.showMessageDialog(null, "Enesima zerada");
+//        }else{
+////            str += listaCandidatos.toString();
+//            str += "\nCandidato "+c12.getNome()+" possui "+c12.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c13.getNome()+" possui "+c13.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c14.getNome()+" possui "+c14.getVotos()+" votos validos.";
+//            str += "\nCandidato "+c22.getNome()+" possui "+c22.getVotos()+" votos validos.";
+//            str += "\n Votos em Branco: "+votoBranco.getVotos();
+//            str += "\n Votos Nulo: "+votoNulo.getVotos();
+//            JOptionPane.showMessageDialog(null, str);
+//        }
     }//GEN-LAST:event_itemResultadosActionPerformed
 
     /**

@@ -1,9 +1,5 @@
 package br.senai.ds1;
 
-/**
- *
- * @author Renan
- */
 public class Candidato{
     
     private String nome;
