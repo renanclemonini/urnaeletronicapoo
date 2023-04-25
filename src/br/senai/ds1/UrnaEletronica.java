@@ -655,13 +655,11 @@ public class UrnaEletronica extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Resultado resultados = new Resultados();
 //        DefaultTableModel tbResultados = (DefaultTableModel) resultados
-        String c12Votos = String.format("%d", c12.getVotos());
         if (listaCandidatos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enesima zerada");
         } else {
             Resultados resultados = new Resultados();
             resultados.setVisible(true);
-            
         }
 //        String str = "";
 //        if(listaCandidatos.isEmpty()){

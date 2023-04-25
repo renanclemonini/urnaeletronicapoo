@@ -20,6 +20,12 @@ public class Resultados extends javax.swing.JFrame {
         initComponents();
     }
     
+    private void setTableInicial(){
+        DefaultTableModel tableResultados = (DefaultTableModel) tbResultados.getModel();
+        Object[] dados = {"Renan","10"};
+        tableResultados.addRow(dados);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +38,8 @@ public class Resultados extends javax.swing.JFrame {
         pnPrincipal = new javax.swing.JPanel();
         pnResultadosEscritos = new javax.swing.JPanel();
         pnResultadosTable = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbResultados = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -52,22 +60,51 @@ public class Resultados extends javax.swing.JFrame {
         );
         pnResultadosEscritosLayout.setVerticalGroup(
             pnResultadosEscritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGap(0, 381, Short.MAX_VALUE)
         );
 
         pnPrincipal.add(pnResultadosEscritos, "card2");
 
         pnResultadosTable.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabela Resultados"));
 
+        tbResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Votos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbResultados.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tbResultadosPropertyChange(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbResultados);
+
         javax.swing.GroupLayout pnResultadosTableLayout = new javax.swing.GroupLayout(pnResultadosTable);
         pnResultadosTable.setLayout(pnResultadosTableLayout);
         pnResultadosTableLayout.setHorizontalGroup(
             pnResultadosTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
+            .addGroup(pnResultadosTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnResultadosTableLayout.setVerticalGroup(
             pnResultadosTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(pnResultadosTableLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pnPrincipal.add(pnResultadosTable, "card3");
@@ -123,7 +160,12 @@ public class Resultados extends javax.swing.JFrame {
         pnPrincipal.add(pnResultadosTable);
         pnPrincipal.repaint();
         pnPrincipal.revalidate();
+        setTableInicial();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void tbResultadosPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tbResultadosPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbResultadosPropertyChange
 
     /**
      * @param args the command line arguments
@@ -165,8 +207,10 @@ public class Resultados extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnPrincipal;
     private javax.swing.JPanel pnResultadosEscritos;
     private javax.swing.JPanel pnResultadosTable;
+    private javax.swing.JTable tbResultados;
     // End of variables declaration//GEN-END:variables
 }
