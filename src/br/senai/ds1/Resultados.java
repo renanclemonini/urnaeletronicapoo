@@ -4,7 +4,6 @@
  */
 package br.senai.ds1;
 
-import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -191,6 +190,7 @@ public class Resultados extends javax.swing.JFrame{
         pnPrincipal.repaint();
         pnPrincipal.revalidate();
         setTableInicial();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void tbResultadosPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tbResultadosPropertyChange

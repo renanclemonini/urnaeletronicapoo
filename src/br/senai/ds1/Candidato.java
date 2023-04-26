@@ -1,7 +1,5 @@
 package br.senai.ds1;
 
-import java.util.List;
-
 public class Candidato{
     
     private String nome;
@@ -71,7 +69,6 @@ public class Candidato{
         this.votos = votos;
     }
     
-
     @Override
     public String toString() {
         return "Candidato{" + " nome: " + nome + " - votos: " + votos + '}';
