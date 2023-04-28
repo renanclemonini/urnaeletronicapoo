@@ -261,6 +261,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue7ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue7KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue8">
@@ -278,6 +279,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue8ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue8KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue1">
@@ -295,6 +297,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnValue1MouseClicked"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue1KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue9">
@@ -312,6 +315,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue9ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue9KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue0">
@@ -329,6 +333,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue0ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue0KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBranco">
@@ -340,6 +345,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBrancoActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnBrancoKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue2">
@@ -357,6 +363,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue2ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue2KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCorrige">
@@ -371,6 +378,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCorrigeMouseClicked"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnCorrigeKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue3">
@@ -388,6 +396,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue3ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue3KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnConfirma">
@@ -402,6 +411,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmaActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnConfirmaKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue4">
@@ -419,6 +429,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue4ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue4KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue5">
@@ -436,6 +447,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue5ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue5KeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnValue6">
@@ -453,6 +465,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValue6ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnValue6KeyPressed"/>
               </Events>
             </Component>
           </SubComponents>
