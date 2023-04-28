@@ -1,5 +1,6 @@
 package br.senai.ds1;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +25,10 @@ public class UrnaEletronica extends javax.swing.JFrame {
     Candidato votoBranco = new Candidato("Voto em Branco", 0);
     Candidato votoNulo = new Candidato("Voto Nulo", 0);
 
-    private List<Candidato> listaCandidatos = new ArrayList<>();
+    private final List<Candidato> listaCandidatos = new ArrayList<>();
 
     public void addCandidatoLista(Candidato candidato) {
         this.listaCandidatos.add(candidato);
-    }
-
-    public void addLista() {
-        listaCandidatos.add(c12);
-        listaCandidatos.add(c13);
-        listaCandidatos.add(c14);
-        listaCandidatos.add(c22);
-        listaCandidatos.add(votoBranco);
-        listaCandidatos.add(votoNulo);
     }
 
     ImageIcon lula = new ImageIcon(getClass().getResource("/image/lula.jpg"));
@@ -58,7 +50,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     }
 
     public void setNumeroCandidato() {
-        switch (txtNumero1.getText()) {
+        switch (txtNumero.getText()) {
             case "00" -> {
                 lblNome.setText("Voto nulo");
                 lblPartido.setText(null);
@@ -103,7 +95,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     }
 
     public void setVotoConfirm() {
-        switch (txtNumero1.getText()) {
+        switch (txtNumero.getText()) {
             case "00" -> {
                 votoNulo.setVotos(votoNulo);
                 addCandidatoLista(votoNulo);
@@ -142,7 +134,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     }
 
     public void setExibicaoInicial() {
-        txtNumero1.setText(null);
+        txtNumero.setText(null);
         lblNome.setText(null);
         lblNomeNome.setText(null);
         lblPartido.setText(null);
@@ -157,7 +149,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     }
 
     public void showPopMenu(MouseEvent e) {
-        jPopupMenu1.show(this, e.getX(), e.getY());
+        popUpMenu.show(this, e.getX(), e.getY());
     }
 
     public void exibirResultados() {
@@ -165,14 +157,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         if (listaCandidatos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enesima zerada");
         } else {
-//            str += listaCandidatos.toString();
-            /* Tentando exibir como lista em resultados
-            for(int i = 0; i < listaCandidatos.size(); i++){
-                for(int j = 0; j < listaCandidatos.size(); j++){
-                    str += "\n"+ listaCandidatos.get(j).getNome()+": "+listaCandidatos.get(j).getVotos()+" votos validos.";
-                }
-            }
-*/
             str += "\n" + c12.getNome() + ": " + c12.getVotos() + " votos validos.";
             str += "\n" + c13.getNome() + ": " + c13.getVotos() + " votos validos.";
             str += "\n" + c14.getNome() + ": " + c14.getVotos() + " votos validos.";
@@ -192,7 +176,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
+        popUpMenu = new javax.swing.JPopupMenu();
         exibirResultados = new javax.swing.JMenuItem();
         fecharUrna = new javax.swing.JMenuItem();
         pnGeneral = new javax.swing.JPanel();
@@ -218,7 +202,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblNomeVice = new javax.swing.JLabel();
         lblPartido = new javax.swing.JLabel();
         lblVice = new javax.swing.JLabel();
-        txtNumero1 = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         lblExibicao = new javax.swing.JLabel();
         lblFotoPresidente = new javax.swing.JLabel();
@@ -237,7 +221,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 exibirResultadosActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(exibirResultados);
+        popUpMenu.add(exibirResultados);
 
         fecharUrna.setText("Encerrar Votação");
         fecharUrna.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +229,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 fecharUrnaActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(fecharUrna);
+        popUpMenu.add(fecharUrna);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Projeto Urna Eletrônica - Renan S. Clemonini");
@@ -478,8 +462,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
         lblVice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        txtNumero1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtNumero1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumero.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNumero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyPressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -524,7 +513,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
                             .addComponent(lblPartido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblVice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNumero1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))))
+                            .addComponent(txtNumero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFotoVice, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -542,7 +531,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
                         .addGap(66, 66, 66)
                         .addGroup(pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNomeNumero)
-                            .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(pnScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
@@ -641,7 +630,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnValue1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValue1MouseClicked
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "1");
+        txtNumero.setText(txtNumero.getText() + "1");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue1MouseClicked
 
@@ -652,62 +641,62 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void btnValue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue2ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "2");
+        txtNumero.setText(txtNumero.getText() + "2");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue2ActionPerformed
 
     private void btnValue3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue3ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "3");
+        txtNumero.setText(txtNumero.getText() + "3");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue3ActionPerformed
 
     private void btnValue4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue4ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "4");
+        txtNumero.setText(txtNumero.getText() + "4");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue4ActionPerformed
 
     private void btnValue5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue5ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "5");
+        txtNumero.setText(txtNumero.getText() + "5");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue5ActionPerformed
 
     private void btnValue6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue6ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "6");
+        txtNumero.setText(txtNumero.getText() + "6");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue6ActionPerformed
 
     private void btnValue7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue7ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "7");
+        txtNumero.setText(txtNumero.getText() + "7");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue7ActionPerformed
 
     private void btnValue8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue8ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "8");
+        txtNumero.setText(txtNumero.getText() + "8");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue8ActionPerformed
 
     private void btnValue9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue9ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "9");
+        txtNumero.setText(txtNumero.getText() + "9");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue9ActionPerformed
 
     private void btnValue0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue0ActionPerformed
         // TODO add your handling code here:
-        txtNumero1.setText(txtNumero1.getText() + "0");
+        txtNumero.setText(txtNumero.getText() + "0");
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue0ActionPerformed
 
     private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
         // TODO add your handling code here:
         setExibicaoInicial();
-        txtNumero1.setText(txtNumero1.getText() + "Branco");
+        txtNumero.setText(txtNumero.getText() + "Branco");
         setNumeroCandidato();
     }//GEN-LAST:event_btnBrancoActionPerformed
 
@@ -719,14 +708,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
     private void itemResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemResultadosActionPerformed
         // TODO add your handling code here:
-//        Resultado resultados = new Resultados();
-//        DefaultTableModel tbResultados = (DefaultTableModel) resultados
-//        if (listaCandidatos.isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Enesima zerada");
-//        } else {
-//            Resultados resultados = new Resultados();
-//            resultados.setVisible(true);
-//        }
         exibirResultados();
     }//GEN-LAST:event_itemResultadosActionPerformed
 
@@ -753,6 +734,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_fecharUrnaActionPerformed
+
+    private void txtNumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyPressed
+        // TODO add your handling code here:
+        if(KeyEvent.VK_ENTER == evt.getKeyCode()){
+            setNumeroCandidato();
+        }
+    }//GEN-LAST:event_txtNumeroKeyPressed
 
     /**
      * @param args the command line arguments
@@ -811,7 +799,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JLabel lblExibicao;
     private javax.swing.JLabel lblExibicaoLaranja;
     private javax.swing.JLabel lblExibicaoVerde;
@@ -827,6 +814,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JPanel pnButtons;
     private javax.swing.JPanel pnGeneral;
     private javax.swing.JPanel pnScreen;
-    private javax.swing.JTextField txtNumero1;
+    private javax.swing.JPopupMenu popUpMenu;
+    private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }
