@@ -91,10 +91,10 @@ public class UrnaEletronica extends javax.swing.JFrame {
             case "Branco" -> {
                 lblNome.setText("Voto em Branco");
             }
-            default ->{
-                JOptionPane.showMessageDialog(null, "Numero inválido");
-                setExibicaoInicial();
-            }
+//            default ->{
+//                JOptionPane.showMessageDialog(null, "Numero inválido");
+//                setExibicaoInicial();
+//            }
         }
     }
 
@@ -270,11 +270,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue7ActionPerformed(evt);
             }
         });
-        btnValue7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue7KeyPressed(evt);
-            }
-        });
 
         btnValue8.setBackground(new java.awt.Color(0, 0, 0));
         btnValue8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -285,24 +280,14 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue8ActionPerformed(evt);
             }
         });
-        btnValue8.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue8KeyPressed(evt);
-            }
-        });
 
         btnValue1.setBackground(new java.awt.Color(0, 0, 0));
         btnValue1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnValue1.setForeground(new java.awt.Color(255, 255, 255));
         btnValue1.setText("1");
-        btnValue1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnValue1MouseClicked(evt);
-            }
-        });
-        btnValue1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue1KeyPressed(evt);
+        btnValue1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValue1ActionPerformed(evt);
             }
         });
 
@@ -315,11 +300,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue9ActionPerformed(evt);
             }
         });
-        btnValue9.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue9KeyPressed(evt);
-            }
-        });
 
         btnValue0.setBackground(new java.awt.Color(0, 0, 0));
         btnValue0.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -330,22 +310,12 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue0ActionPerformed(evt);
             }
         });
-        btnValue0.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue0KeyPressed(evt);
-            }
-        });
 
         btnBranco.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBranco.setText("Branco");
         btnBranco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBrancoActionPerformed(evt);
-            }
-        });
-        btnBranco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnBrancoKeyPressed(evt);
             }
         });
 
@@ -358,23 +328,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue2ActionPerformed(evt);
             }
         });
-        btnValue2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue2KeyPressed(evt);
-            }
-        });
 
         btnCorrige.setBackground(new java.awt.Color(255, 153, 51));
         btnCorrige.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCorrige.setText("Corrige");
-        btnCorrige.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCorrigeMouseClicked(evt);
-            }
-        });
-        btnCorrige.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnCorrigeKeyPressed(evt);
+        btnCorrige.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCorrigeActionPerformed(evt);
             }
         });
 
@@ -387,11 +347,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue3ActionPerformed(evt);
             }
         });
-        btnValue3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue3KeyPressed(evt);
-            }
-        });
 
         btnConfirma.setBackground(new java.awt.Color(102, 255, 0));
         btnConfirma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -399,11 +354,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         btnConfirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmaActionPerformed(evt);
-            }
-        });
-        btnConfirma.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnConfirmaKeyPressed(evt);
             }
         });
 
@@ -416,11 +366,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue4ActionPerformed(evt);
             }
         });
-        btnValue4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue4KeyPressed(evt);
-            }
-        });
 
         btnValue5.setBackground(new java.awt.Color(0, 0, 0));
         btnValue5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -431,11 +376,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 btnValue5ActionPerformed(evt);
             }
         });
-        btnValue5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue5KeyPressed(evt);
-            }
-        });
 
         btnValue6.setBackground(new java.awt.Color(0, 0, 0));
         btnValue6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -444,11 +384,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         btnValue6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValue6ActionPerformed(evt);
-            }
-        });
-        btnValue6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnValue6KeyPressed(evt);
             }
         });
 
@@ -703,17 +638,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnValue1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValue1MouseClicked
-        // TODO add your handling code here:
-        txtNumero.setText(txtNumero.getText() + "1");
-        setNumeroCandidato();
-    }//GEN-LAST:event_btnValue1MouseClicked
-
-    private void btnCorrigeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorrigeMouseClicked
-        // TODO add your handling code here:
-        setExibicaoInicial();
-    }//GEN-LAST:event_btnCorrigeMouseClicked
-
     private void btnValue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue2ActionPerformed
         // TODO add your handling code here:
         txtNumero.setText(txtNumero.getText() + "2");
@@ -815,70 +739,16 @@ public class UrnaEletronica extends javax.swing.JFrame {
         setEnter(evt);
     }//GEN-LAST:event_txtNumeroKeyPressed
 
-    private void btnValue1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue1KeyPressed
+    private void btnCorrigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorrigeActionPerformed
         // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue1KeyPressed
+        setExibicaoInicial();
+    }//GEN-LAST:event_btnCorrigeActionPerformed
 
-    private void btnValue2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue2KeyPressed
+    private void btnValue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValue1ActionPerformed
         // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue2KeyPressed
-
-    private void btnValue3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue3KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue3KeyPressed
-
-    private void btnValue4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue4KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue4KeyPressed
-
-    private void btnValue5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue5KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue5KeyPressed
-
-    private void btnValue6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue6KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue6KeyPressed
-
-    private void btnValue7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue7KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue7KeyPressed
-
-    private void btnValue8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue8KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue8KeyPressed
-
-    private void btnValue9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue9KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue9KeyPressed
-
-    private void btnValue0KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnValue0KeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnValue0KeyPressed
-
-    private void btnBrancoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBrancoKeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnBrancoKeyPressed
-
-    private void btnCorrigeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCorrigeKeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnCorrigeKeyPressed
-
-    private void btnConfirmaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConfirmaKeyPressed
-        // TODO add your handling code here:
-        setEnter(evt);
-    }//GEN-LAST:event_btnConfirmaKeyPressed
+        txtNumero.setText(txtNumero.getText() + "1");
+        setNumeroCandidato();
+    }//GEN-LAST:event_btnValue1ActionPerformed
 
     /**
      * @param args the command line arguments
