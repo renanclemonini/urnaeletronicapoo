@@ -91,10 +91,6 @@ public class UrnaEletronica extends javax.swing.JFrame {
             case "Branco" -> {
                 lblNome.setText("Voto em Branco");
             }
-//            default ->{
-//                JOptionPane.showMessageDialog(null, "Numero inválido");
-//                setExibicaoInicial();
-//            }
         }
     }
 
