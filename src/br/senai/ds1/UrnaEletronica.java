@@ -106,22 +106,22 @@ public class UrnaEletronica extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Voto nulo computado com sucesso!");
             }
             case "12" -> {
-                votoNulo.setVotos(c12);
+                c12.setVotos(c12);
                 addCandidatoLista(c12);
                 JOptionPane.showMessageDialog(null, "Voto em " + c12.getNome() + " computado com sucesso!");
             }
             case "13" -> {
-                votoNulo.setVotos(c13);
+                c13.setVotos(c13);
                 addCandidatoLista(c13);
                 JOptionPane.showMessageDialog(null, "Voto em " + c13.getNome() + " computado com sucesso!");
             }
             case "14" -> {
-                votoNulo.setVotos(c14);
+                c14.setVotos(c14);
                 addCandidatoLista(c14);
                 JOptionPane.showMessageDialog(null, "Voto em " + c14.getNome() + " computado com sucesso!");
             }
             case "22" -> {
-                votoNulo.setVotos(c22);
+                c22.setVotos(c22);
                 addCandidatoLista(c22);
                 JOptionPane.showMessageDialog(null, "Voto em " + c22.getNome() + " computado com sucesso!");
             }
