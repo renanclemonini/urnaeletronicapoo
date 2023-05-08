@@ -69,6 +69,10 @@ public class Candidato{
         this.votos = votos;
     }
     
+    public void resetVotos(){
+        this.votos = 0;
+    }
+    
     @Override
     public String toString() {
         return "Candidato{" + " nome: " + nome + " - votos: " + votos + '}';

@@ -11,26 +11,22 @@ import javax.swing.JOptionPane;
  *
  * @author Renan
  */
-public class UrnaEletronica extends javax.swing.JFrame {
+public class UrnaEletronica extends javax.swing.JFrame implements UrnaInterface{
 
     public UrnaEletronica() {
         initComponents();
         
     }
-
+    
+    //Candudatos
     Candidato c12 = new Candidato("Ciro", "Ana Paula", 12, "PDT");
     Candidato c13 = new Candidato("Lula", "Geraldo", 13, "PT");
     Candidato c14 = new Candidato("Padre Kelmon", "Pastor Gamonal", 14, "PTB");
     Candidato c22 = new Candidato("Bolsonaro", "General Heleno", 22, "PL");
     Candidato votoBranco = new Candidato("Voto em Branco", 0);
     Candidato votoNulo = new Candidato("Voto Nulo", 0);
-
-    private final List<Candidato> listaCandidatos = new ArrayList<>();
-
-    public void addCandidatoLista(Candidato candidato) {
-        this.listaCandidatos.add(candidato);
-    }
-
+    
+    //ImageIcon
     ImageIcon lula = new ImageIcon(getClass().getResource("/image/lula.jpg"));
     ImageIcon geraldo = new ImageIcon(getClass().getResource("/image/geraldo.jpg"));
     ImageIcon ciro = new ImageIcon(getClass().getResource("/image/ciro.jpg"));
@@ -39,7 +35,27 @@ public class UrnaEletronica extends javax.swing.JFrame {
     ImageIcon braganeto = new ImageIcon(getClass().getResource("/image/braganeto.jpg"));
     ImageIcon kelmon = new ImageIcon(getClass().getResource("/image/kelmon.jpg"));
     ImageIcon prgamonal = new ImageIcon(getClass().getResource("/image/prgamonal.jpg"));
+    
+    private final List<Candidato> listaCandidatos = new ArrayList<>();
 
+    @Override
+    public void addCandidatoLista(Candidato candidato) {
+        this.listaCandidatos.add(candidato);
+    }
+    
+    @Override
+    public void reiniciarVotacao(){
+        this.listaCandidatos.removeAll(listaCandidatos);
+        c12.resetVotos();
+        c13.resetVotos();
+        c14.resetVotos();
+        c22.resetVotos();
+        votoBranco.resetVotos();
+        votoNulo.resetVotos();
+    }
+
+
+    @Override
     public void setExibicao() {
         lblNomeNome.setText("Nome:");
         lblNomePartido.setText("Partido:");
@@ -49,6 +65,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblExibicaoLaranja.setText("LARANJA para REINICIAR este voto");
     }
 
+    @Override
     public void setNumeroCandidato() {
         switch (txtNumero.getText()) {
             case "00" -> {
@@ -94,6 +111,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         }
     }
 
+    @Override
     public void setVotoConfirm() {
         switch (txtNumero.getText()) {
             case "00" -> {
@@ -133,6 +151,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
         }
     }
 
+    @Override
     public void setExibicaoInicial() {
         txtNumero.setText(null);
         lblNome.setText(null);
@@ -148,10 +167,13 @@ public class UrnaEletronica extends javax.swing.JFrame {
         lblExibicaoLaranja.setText(null);
     }
 
+    
+    @Override
     public void showPopMenu(MouseEvent e) {
         popUpMenu.show(this, e.getX(), e.getY());
     }
 
+    @Override
     public void exibirResultados() {
         String str = "";
         if (listaCandidatos.isEmpty()) {
@@ -167,6 +189,8 @@ public class UrnaEletronica extends javax.swing.JFrame {
         }
     }
     
+    
+    @Override
     public void setEnter(KeyEvent evt){
         if(KeyEvent.VK_ENTER == evt.getKeyCode()){
             setNumeroCandidato();
@@ -184,6 +208,7 @@ public class UrnaEletronica extends javax.swing.JFrame {
 
         popUpMenu = new javax.swing.JPopupMenu();
         exibirResultados = new javax.swing.JMenuItem();
+        resetVotacao = new javax.swing.JMenuItem();
         fecharUrna = new javax.swing.JMenuItem();
         pnGeneral = new javax.swing.JPanel();
         pnButtons = new javax.swing.JPanel();
@@ -220,6 +245,8 @@ public class UrnaEletronica extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itemResultados = new javax.swing.JMenuItem();
+        itemReiniciar = new javax.swing.JMenuItem();
+        encerrarVotacao = new javax.swing.JMenuItem();
 
         exibirResultados.setText("Exibir Resultados");
         exibirResultados.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +255,14 @@ public class UrnaEletronica extends javax.swing.JFrame {
             }
         });
         popUpMenu.add(exibirResultados);
+
+        resetVotacao.setText("Reiniciar Votação");
+        resetVotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetVotacaoActionPerformed(evt);
+            }
+        });
+        popUpMenu.add(resetVotacao);
 
         fecharUrna.setText("Encerrar Votação");
         fecharUrna.addActionListener(new java.awt.event.ActionListener() {
@@ -252,10 +287,10 @@ public class UrnaEletronica extends javax.swing.JFrame {
         });
 
         pnGeneral.setBackground(new java.awt.Color(255, 255, 255));
-        pnGeneral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnGeneral.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         pnButtons.setBackground(new java.awt.Color(0, 0, 0));
-        pnButtons.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnButtons.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         btnValue7.setBackground(new java.awt.Color(0, 0, 0));
         btnValue7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -604,16 +639,34 @@ public class UrnaEletronica extends javax.swing.JFrame {
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/page.png"))); // NOI18N
-        jMenu1.setText("Resultados");
+        jMenu1.setText("Menu");
 
         itemResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/information.png"))); // NOI18N
-        itemResultados.setText("Ver Votos");
+        itemResultados.setText("Apuração");
         itemResultados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemResultadosActionPerformed(evt);
             }
         });
         jMenu1.add(itemResultados);
+
+        itemReiniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/report_delete.png"))); // NOI18N
+        itemReiniciar.setText("Reiniciar Votação");
+        itemReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReiniciarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itemReiniciar);
+
+        encerrarVotacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/door_out.png"))); // NOI18N
+        encerrarVotacao.setText("Encerrar Votação");
+        encerrarVotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                encerrarVotacaoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(encerrarVotacao);
 
         jMenuBar1.add(jMenu1);
 
@@ -746,6 +799,25 @@ public class UrnaEletronica extends javax.swing.JFrame {
         setNumeroCandidato();
     }//GEN-LAST:event_btnValue1ActionPerformed
 
+    private void resetVotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetVotacaoActionPerformed
+        // TODO add your handling code here:
+        reiniciarVotacao();
+        setExibicaoInicial();
+        JOptionPane.showMessageDialog(null, "Votação reiniciada");
+    }//GEN-LAST:event_resetVotacaoActionPerformed
+
+    private void itemReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReiniciarActionPerformed
+        // TODO add your handling code here:
+        reiniciarVotacao();
+        setExibicaoInicial();
+        JOptionPane.showMessageDialog(null, "Votação reiniciada");
+    }//GEN-LAST:event_itemReiniciarActionPerformed
+
+    private void encerrarVotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encerrarVotacaoActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_encerrarVotacaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -795,8 +867,10 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JButton btnValue7;
     private javax.swing.JButton btnValue8;
     private javax.swing.JButton btnValue9;
+    private javax.swing.JMenuItem encerrarVotacao;
     private javax.swing.JMenuItem exibirResultados;
     private javax.swing.JMenuItem fecharUrna;
+    private javax.swing.JMenuItem itemReiniciar;
     private javax.swing.JMenuItem itemResultados;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -819,6 +893,12 @@ public class UrnaEletronica extends javax.swing.JFrame {
     private javax.swing.JPanel pnGeneral;
     private javax.swing.JPanel pnScreen;
     private javax.swing.JPopupMenu popUpMenu;
+    private javax.swing.JMenuItem resetVotacao;
     private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void addCandidatos(Candidato candidato) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
