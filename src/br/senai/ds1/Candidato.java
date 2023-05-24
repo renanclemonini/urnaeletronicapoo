@@ -26,7 +26,6 @@ public class Candidato{
     }
     
     public void setVotos(Candidato candidato){
-//        candidato.setVotos(candidato.getVotos()+1);
         this.setVotos(this.getVotos()+1);
     }
 

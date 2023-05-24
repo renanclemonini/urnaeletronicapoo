@@ -166,7 +166,6 @@ public class UrnaEletronica extends javax.swing.JFrame implements UrnaInterface{
         lblExibicaoVerde.setText(null);
         lblExibicaoLaranja.setText(null);
     }
-
     
     @Override
     public void showPopMenu(MouseEvent e) {
